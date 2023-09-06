@@ -21,8 +21,8 @@ public class BancosController {
     BancosRepository repository;
 
     @GetMapping("/{empresaId}")
-    public List<BancosDiaModel> listarBancos(@PathVariable("empresaId") Integer empresaId) {
-        return repository.findByEmpresaId(empresaId);
+    public ResponseEntity listarBancos(@PathVariable("empresaId") Integer empresaId) {
+        return ResponseEntity.ok(repository.findByEmpresaId(empresaId));
     }
 
     @PutMapping("/{banco}")
